@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-CrypTrus2.0 - IoT Information Gathering Tool for Termux
+CryPTrus2.0- - IoT Information Gathering Tool for Termux
 Optimized for non-root Termux environments
-Author: Sosnac
+Author: David Sosnac
 Version: 2.0
 """
 
