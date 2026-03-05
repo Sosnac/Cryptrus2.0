@@ -32,7 +32,9 @@ CryPTrus 2.0 is an advanced cryptography project that provides users with secure
    Open your browser and go to
   http://localhost:3000
 
-License
+**License**:
+
 This project is licensed under the MIT License - see the LICENSE file for details.
+
 Created by David Sosnac [DashAngel]
 
