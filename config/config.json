@@ -1,0 +1,20 @@
+{
+  "osint_scanning": {
+    "enabled": true,
+    "methods": [
+      "search_engine",
+      "social_media",
+      "domain_lookup"
+    ],
+    "depth": 3
+  },
+  "iot_scanning": {
+    "enabled": true,
+    "devices": [
+      "smart_home",
+      "wearables",
+      "cameras"
+    ],
+    "timeout": 30
+  }
+}
