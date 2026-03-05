@@ -22,3 +22,10 @@ CryPTrus 2.0 is an advanced cryptography project that provides users with secure
    ```bash
    git clone [https://github.com/Sosnac/CryPTrus2.0-.git](https://github.com/Sosnac/CryPTrus2.0-.git)
    cd CryPTrus2.0-
+2. **Install Dependicies**:
+   ```bash
+   npm install
+3. **Run The Application*:
+   ```bash
+   npm start 
+
