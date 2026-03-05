@@ -18,11 +18,15 @@ CryPTrus 2.0 is an advanced cryptography project that provides users with secure
    cd CryPTrus2.0-
 
 2. Install Dependencies:
-```bash
+
+bash:
+
 npm install
 
 3. Run the Application:
-```bash
+
+bash:
+
 npm start
 
 4. Access the Application:
