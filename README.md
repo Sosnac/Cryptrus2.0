@@ -44,17 +44,20 @@ Follow these instructions to get a copy of the project up and running on your lo
 ### 1. Clone the Repository
 ```bash
 git clone [https://github.com/Sosnac/CryPTrus2.0-.git](https://github.com/Sosnac/CryPTrus2.0-.git)
-cd CryPTrus2.0- ```
+cd CryPTrus2.0-
+```
 
 
 ### 2. Install Dependencies
 ```bash
-npm install ```
+npm install
+```
 
 
 ### 3. Run The Application
 ```bash
-npm start ```
+npm start
+```
 
 
 ### 4. Access the Application
