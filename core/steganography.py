@@ -51,3 +51,18 @@ class SteganoProvider:
             if decoded_text.endswith("#####"): # Look for delimiter
                 return decoded_text[:-5]
         return "No message found."
+
+import time
+
+# Inside your SteganoProvider class, update the encode method:
+def encode_message(self, image_path, message, output_path, timer_seconds=None):
+    """
+    Hides a message with an optional auto-destruct timestamp.
+    """
+    img = Image.open(image_path)
+    # If a timer is set, we prepend the expiry timestamp to the message
+    if timer_seconds:
+        expiry_time = int(time.time()) + timer_seconds
+        message = f"EXP:{expiry_time}|{message}"
+    
+  
