@@ -31,3 +31,16 @@ class NetworkScanner:
             if self.ping_host(ip):
                 active_hosts.append(ip)
         return active_hosts
+
+"""Module for scanning the local network."""
+import subprocess
+import platform
+
+class NetworkScanner:
+    """Handles network scanning logic."""
+    def __init__(self):
+        self.os_type = platform.system().lower()
+
+    def scan_network(self):
+        """Returns a list of active IPs (Placeholder)."""
+        return ["192.168.1.1", "192.168.1.5"]
