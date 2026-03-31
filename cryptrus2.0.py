@@ -17,11 +17,12 @@ from pathlib import Path
 # Add modules to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'modules'))
 
-from network_scanner import NetworkScanner
-from device_detection import DeviceDetector
-from iot_identifier import IoTIdentifier
-from vulnerability_checker import VulnerabilityChecker
-from data_parser import DataParser
+from core.network_scanner import NetworkScanner
+
+from core.device_detection import DeviceDetector
+from core.iot_identifier import IoTIdentifier
+from core.vulnerability_checker import VulnerabilityChecker
+from core.data_parser import DataParser
 
 class CrypTrus2:
     """Main CrypTrus2.0 IoT Information Gathering Tool"""
