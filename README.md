@@ -317,12 +317,6 @@ GitHub: [@Sosnac](https://github.com/DavidSosnac)
 
 ---
 
-## 🤝 Contributing
-
-Contributions welcome! Feel free to fork and submit pull requests.
-
----
-
 ## 📞 Support
 
 For issues, questions, or suggestions:
