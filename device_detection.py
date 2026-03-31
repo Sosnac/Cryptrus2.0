@@ -18,3 +18,10 @@ class DeviceDetection:
             
         prefix = mac_address.upper()[:8].replace("-", ":")
         return self.vendor_map.get(prefix, "Generic Network Device")
+
+"""Module for identifying network devices."""
+class DeviceDetection:
+    """Handles device identification logic."""
+    def identify_device(self, ip_address):
+        """Identifies device type based on IP (Placeholder)."""
+        return f"Generic Device at {ip_address}"
