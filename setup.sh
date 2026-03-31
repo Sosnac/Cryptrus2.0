@@ -19,6 +19,17 @@ apt update -y
 apt upgrade -y
 
 echo "[*] Installing required packages..."
+if [ -d "/data/data/com.termux/files/usr" ]; then
+    echo "[*] Termux detected. Installing dependencies..."
+    pkg update && pkg upgrade -y
+    pkg install -y python ndk-sysroot clang make libffi openssl # Added common build tools
+else
+    echo "[*] Linux detected. Installing dependencies..."
+    sudo apt-get update
+    sudo apt-get install -y python3 python3-pip
+fi
+
+
 echo "[*] Installing required packages..."
 
 # Check if the environment is Termux by looking for its specific directory
