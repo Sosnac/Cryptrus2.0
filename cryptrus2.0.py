@@ -5,7 +5,12 @@ Optimized for non-root Termux environments
 Author: David Sosnac
 Version: 2.0
 """
+from network_scanner import NetworkScanner
+from device_detection import DeviceDetection
 
+# Initialize them
+scanner = NetworkScanner()
+detector = DeviceDetection()
 import os
 import sys
 import argparse
