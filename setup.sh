@@ -20,13 +20,16 @@ apt upgrade -y
 
 echo "[*] Installing required packages..."
 if [ -d "/data/data/com.termux/files/usr" ]; then
-    echo "[*] Termux detected. Installing dependencies..."
+    echo "[*] Termux detected. Installing image & system dependencies..."
     pkg update && pkg upgrade -y
-    pkg install -y python ndk-sysroot clang make libffi openssl # Added common build tools
+    # These libraries are required for Pillow to work on Termux
+    pkg install -y python libjpeg-turbo libpng zlib libtiff freetype
+    pip install Pillow
 else
-    echo "[*] Linux detected. Installing dependencies..."
+    echo "[*] Linux detected..."
     sudo apt-get update
-    sudo apt-get install -y python3 python3-pip
+    sudo apt-get install -y python3-pip libjpeg-dev zlib1g-dev
+    pip3 install Pillow
 fi
 
 apt install -y python3 python3-pip curl wget git inetutils net-tools openssh
