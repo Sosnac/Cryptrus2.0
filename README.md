@@ -8,13 +8,13 @@ Advanced IoT device detection, identification, and vulnerability assessment tool
 
 ## 📋 Features
 
-**Network Scanning** - ARP and ICMP-based host discovery  
-**Device Detection** - Identify devices and gather system information  
-**IoT Identification** - Detect and classify IoT devices  
-**Vulnerability Assessment** - Check for known vulnerabilities  
-**Non-Root Compatible** - Works perfectly in Termux without sudo  
-**Flexible Output** - JSON, CSV, and text report formats  
-**Termux Optimized** - Designed specifically for mobile environments  
+1. **Network Scanning** - ARP and ICMP-based host discovery  
+2. **Device Detection** - Identify devices and gather system information  
+3. **IoT Identification** - Detect and classify IoT devices  
+4. **Vulnerability Assessment** - Check for known vulnerabilities  
+5. **Non-Root Compatible** - Works perfectly in Termux without sudo  
+6. **Flexible Output** - JSON, CSV, and text report formats  
+7. **Termux Optimized** - Designed specifically for mobile environments  
 
 ---
 
