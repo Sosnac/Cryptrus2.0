@@ -6,8 +6,7 @@ Author: Sosnac
 Version: 2.0
 """
 
-import os
-import sys
+
 import argparse
 import json
 import subprocess
