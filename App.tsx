@@ -2,10 +2,56 @@ import React, { useState, useEffect } from 'react';
 import { encryptData, decryptData } from './utils/cryptoUtils';
 
 function App() {
-  // This tells the app: "Use the .env key if it exists, otherwise use this backup."
-const [userKey, setUserKey] = useState<string>(
-  process.env.REACT_APP_MASTER_KEY || 'default-key-123'
-);
+  const handleProcess = () => {
+  if (!key || !input) {
+    alert("Please enter both a key and a message/cipher!");
+    return;
+  }
+
+  if (mode === 'encrypt') {
+    // 1. Add timer metadata if selected
+    let payload = input;
+    if (timer > 0) {
+      const expiry = Math.floor(Date.now() / 1000) + timer;
+      payload = `EXP:${expiry}|${input}`;
+    }
+    // 2. Encrypt the whole payload
+    const encrypted = CryptoJS.AES.encrypt(payload, key).toString();
+    setResult({ type: 'cipher', data: encrypted });
+  } else {
+    // 1. Decrypt the raw string
+    try {
+      const bytes = CryptoJS.AES.decrypt(input, key);
+      const decoded = bytes.toString(CryptoJS.enc.Utf8);
+
+      if (!decoded) throw new Error("Invalid Key");
+
+      // 2. Check for Timer Metadata
+      if (decoded.startsWith("EXP:")) {
+        const parts = decoded.split('|');
+        const expiry = parseInt(parts[0].replace("EXP:", ""));
+        const actualMsg = parts[1];
+        const now = Math.floor(Date.now() / 1000);
+
+        if (now > expiry) {
+          setResult({ expired: true });
+        } else {
+          setResult({ 
+            type: 'plain', 
+            message: actualMsg, 
+            remaining: expiry - now 
+          });
+        }
+      } else {
+        // No timer, just show message
+        setResult({ type: 'plain', message: decoded });
+      }
+    } catch (error) {
+      alert("Decryption Failed: Likely an incorrect Master Key.");
+      setResult(null);
+    }
+  }
+};
 ;
   const [encryptedText, setEncryptedText] = useState<string>('');
   const [cipherToDecrypt, setCipherToDecrypt] = useState<string>('');
