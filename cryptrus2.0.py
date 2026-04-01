@@ -34,8 +34,8 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from steganography import SteganoProvider
-from auth_2fa import Auth2FA
+from modules.steganography import SteganoProvider
+from modules.auth_2fa import Auth2FA
 
 import argparse
 import json
