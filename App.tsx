@@ -49,7 +49,7 @@ const [userKey, setUserKey] = useState<string>(
             value={userKey}
             onChange={(e) => setUserKey(e.target.value)}
             className="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 focus:border-cyan-500 outline-none transition-all"
-            placeholder="Enter your secret passphrase..."
+            placeholder="Supreme-key369"
           />
         </div>
 
