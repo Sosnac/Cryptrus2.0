@@ -257,7 +257,7 @@ chmod +x daily_scan.sh
 
 ## 🔐 Ethical Use
 
-**Important**: Always obtain proper authorization before scanning networks you don't own. Unauthorized network scanning may be illegal in your jurisdiction.
+**Important Note**: Always obtain proper authorization before scanning networks you don't own. Unauthorized network scanning may be illegal in your jurisdiction.
 
 ---
 
