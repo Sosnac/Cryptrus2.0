@@ -1,15 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0f172a" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryPTrus 2.0 - Secure Vault</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    
-    <div id="root"></div>
-    
-  </body>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-100 p-8 font-mono">
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-12 text-center">
+            <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 mb-2">CryPTrus 2.0</h1>
+            <p class="text-slate-400">Military-grade AES-256 Encryption Dashboard</p>
+        </header>
+
+        <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl mb-8">
+            <label class="block text-cyan-400 text-sm font-bold mb-2">MASTER SECURITY KEY</label>
+            <input type="password" id="userKey" value="default-key-123" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 focus:border-cyan-500 outline-none transition-all" placeholder="Enter custom key..." />
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-xl">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="text-green-400">●</span> Encrypt Message</h2>
+                <textarea id="inputText" class="w-full h-32 bg-slate-950 border border-slate-700 rounded-lg p-3 mb-4 resize-none focus:border-green-500 outline-none" placeholder="Type secret message..."></textarea>
+                
+                <div class="p-4 bg-slate-950 rounded-lg border border-slate-800 min-h-[100px] relative group">
+                    <p class="text-xs text-slate-500 mb-2 font-bold uppercase">Encrypted Output</p>
+                    <p id="encryptedOutput" class="break-all text-sm text-cyan-200">Awaiting input...</p>
+                    <button id="copyBtn" class="absolute top-2 right-2 bg-slate-800 hover:bg-cyan-600 text-[10px] px-2 py-1 rounded transition-colors hidden">COPY</button>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl shadow-xl">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="text-red-400">●</span> Decrypt Message</h2>
+                <textarea id="cipherText" class="w-full h-32 bg-slate-950 border border-slate-700 rounded-lg p-3 mb-4 resize-none focus:border-red-500 outline-none" placeholder="Paste Ciphertext..."></textarea>
+                
+                <div class="p-4 bg-slate-950 rounded-lg border border-slate-800 min-h-[100px]">
+                    <p class="text-xs text-slate-500 mb-2 font-bold uppercase">Decrypted Output</p>
+                    <p id="decryptedOutput" class="text-sm text-green-400">Awaiting valid cipher...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const inputEl = document.getElementById('inputText');
+        const keyEl = document.getElementById('userKey');
+        const encOutEl = document.getElementById('encryptedOutput');
+        const copyBtn = document.getElementById('copyBtn');
+        const cipherEl = document.getElementById('cipherText');
+        const decOutEl = document.getElementById('decryptedOutput');
+
+        // Advanced Timer Encryption Logic
+        function encryptData(text, key, seconds = null) {
+            if (!text || !key) return "";
+            let payload = text;
+            if (seconds) {
+                const expiry = Math.floor(Date.now() / 1000) + seconds;
+                payload = `EXP:${expiry}|${text}`;
+            }
+            return CryptoJS.AES.encrypt(payload, key).toString();
+        }
+
+        // Advanced Timer Decryption Logic
+        function decryptData(ciphertext, key) {
+            if (!ciphertext || !key) return { message: "Awaiting valid cipher...", error: false };
+            try {
+                const bytes = CryptoJS.AES.decrypt(ciphertext, key);
+                const decoded = bytes.toString(CryptoJS.enc.Utf8);
+                
+                if (!decoded) throw new Error("Invalid");
+
+                if (decoded.startsWith("EXP:")) {
+                    const parts = decoded.split('|');
+                    const meta = parts[0];
+                    const msg = parts.slice(1).join('|');
+                    const expiry = parseInt(meta.replace("EXP:", ""));
+                    const now = Math.floor(Date.now() / 1000);
+
+                    if (now > expiry) return { message: "❌ Message Expired!", error: true };
+                    return { message: msg, error: false };
+                }
+                return { message: decoded, error: false };
+            } catch (e) {
+                return { message: "⚠️ Invalid Key or Cipher", error: true };
+            }
+        }
+
+        // UI Updaters
+        function updateEncryption() {
+            const result = encryptData(inputEl.value, keyEl.value);
+            if (result) {
+                encOutEl.innerText = result;
+                copyBtn.classList.remove('hidden');
+            } else {
+                encOutEl.innerText = "Awaiting input...";
+                copyBtn.classList.add('hidden');
+            }
+        }
+
+        function updateDecryption() {
+            const result = decryptData(cipherEl.value, keyEl.value);
+            decOutEl.innerText = result.message;
+            decOutEl.className = result.error ? "text-sm text-red-400 mt-2 font-bold" : "text-sm text-green-400 mt-2";
+        }
+
+        // Event Listeners
+        inputEl.addEventListener('input', updateEncryption);
+        keyEl.addEventListener('input', () => { updateEncryption(); updateDecryption(); });
+        cipherEl.addEventListener('input', updateDecryption);
+
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(encOutEl.innerText);
+            const originalText = copyBtn.innerText;
+            copyBtn.innerText = "COPIED!";
+            setTimeout(() => copyBtn.innerText = originalText, 2000);
+        });
+    </script>
+</body>
 </html>
