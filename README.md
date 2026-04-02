@@ -74,7 +74,6 @@ Open your browser and go to: http://localhost:3000
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 -----
-
 *Copyright (c) 2026 David Sosnac, All rights reserved*
 
 
