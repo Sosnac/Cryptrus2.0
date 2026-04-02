@@ -18,9 +18,9 @@ import os
 from pathlib import Path
 
 # --- THE PATH FIXER ---
-# This tells Python to look inside the 'modules' folder for scripts
+# This tells Python to look inside the 'core' folder for scripts
 script_dir = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(script_dir, 'modules'))
+sys.path.insert(0, os.path.join(script_dir, 'core'))
 sys.path.insert(0, os.path.join(script_dir, 'core'))
 
 # --- CORRECT IMPORTS ---
