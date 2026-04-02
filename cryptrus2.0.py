@@ -26,11 +26,11 @@ sys.path.insert(0, os.path.join(script_dir, 'core'))
 # --- CORRECT IMPORTS ---
 # Since we added 'modules' to the path above, we import directly from the filenames
 try:
-    from network_scanner import NetworkScanner
-    from device_detection import DeviceDetector
-    from iot_identifier import IoTIdentifier
-    from vulnerability_checker import VulnerabilityChecker
-    from data_parser import DataParser
+    from core.network_scanner import NetworkScanner
+    from core.device_detection import DeviceDetector
+    from core.iot_identifier import IoTIdentifier
+    from core.vulnerability_checker import VulnerabilityChecker
+    from core.data_parser import DataParser
 except ImportError as e:
     print(f"Error: Could not find a required module. {e}")
     sys.exit(1)
