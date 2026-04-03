@@ -1,4 +1,4 @@
-![Cryptrus 2.0](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=CryPTrus%202.0&fontSize=70&fontAlignY=40&desc=Advanced%20Cryptography%20Simplified&descAlignY=60&descAlign=50)
+![Cryptrus 2.0](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Cryptrus%202.0&fontSize=70&fontAlignY=40&desc=Advanced%20Cryptography%20Simplified&descAlignY=60&descAlign=50)
 
 <div align="center">
 
@@ -8,7 +8,7 @@
   <img alt="React" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
   <img alt="SHELL" src="https://img.shields.io/badge/SHELL-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white" />
   <img alt="Python"
-  src="https://img.shields.io/badge/PYTHON-F7DF1E?style=for-the-badge&logo=python&logoColor=blue"/>
+src="https://img.shields.io/badge/PYTHON-F7DF1E?style=for-the-badge&logo=python&logoColor=blue"/>
 
 </div>
 
@@ -16,7 +16,7 @@
 
 ![Project Overview](https://capsule-render.vercel.app/api?type=rect&color=gradient&height=60&section=header&text=Project%20Overview&fontSize=25)
 
-**CryPTrus 2.0** is an advanced cryptography project that provides users with secure communication tools and intuitive encryption functionalities. It aims to simplify the encryption process while ensuring that the highest standards of security are maintained.
+**Cryptrus 2.0** is an advanced cryptography project that provides users with secure communication tools and intuitive encryption functionalities. It aims to simplify the encryption process while ensuring that the highest standards of security are maintained.
 
 <br />
 
