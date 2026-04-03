@@ -2,7 +2,7 @@
 
 Contributing to CrypTrus2.0
 
-First off, thank you for considering contributing to CryPTrus 2.0! It's people like you that make the open-source community such an amazing place to learn, inspire, and create.
+First off, thank you for considering contributing to CrypTrus 2.0! It's people like you that make the open-source community such an amazing place to learn, inspire, and create.
 
 ### How Can I Contribute?
 
