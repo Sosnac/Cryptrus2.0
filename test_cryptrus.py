@@ -4,7 +4,7 @@ from PIL import Image
 from steganography import SteganoProvider
 from auth_2fa import Auth2FA
 
-class TestCryPTrusCore(unittest.TestCase):
+class TestCrypTrusCore(unittest.TestCase):
     """Test suite for Steganography and 2FA modules."""
 
     def setUp(self):
@@ -13,7 +13,7 @@ class TestCryPTrusCore(unittest.TestCase):
         self.auth = Auth2FA()
         self.test_img = "test_input.png"
         self.output_img = "test_output.png"
-        self.secret_msg = "CryPTrus-Secret-2026"
+        self.secret_msg = "CrypTrus-Secret-2026"
 
         # Create a tiny 100x100 solid blue image for testing
         img = Image.new('RGB', (100, 100), color='blue')
