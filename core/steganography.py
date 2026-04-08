@@ -54,7 +54,7 @@ class SteganoProvider:
 
 import time
 
-# Inside your SteganoProvider class, update the encode method:
+# Inside SteganoProvider class, update the encode method:
 def encode_message(self, image_path, message, output_path, timer_seconds=None):
     """
     Hides a message with an optional auto-destruct timestamp.
