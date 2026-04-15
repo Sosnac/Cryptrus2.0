@@ -45,7 +45,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Sosnac/CrypTrus2.0.git
+git clone https://github.com/Dsosnac-TEC-Enterprise/CrypTrus2.0.git
 cd CrypTrus2.0
 ```
 
