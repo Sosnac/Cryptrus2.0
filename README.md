@@ -62,7 +62,11 @@ npm start
 ```
 
 ### 4. Certificate Management
-Replace the default cert.pem with your organization's CA-signed certificates for production use.
+Replace the default cert.pem with your organization's CA-signed certificates for production use. OR if you don't have any CA signed cert run the below command to render a self-signed certificate.
+```bash
+pkg install openssl
+openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365
+``` 
 
 ### 5. Access the Application
 Open your browser and go to: https://localhost:3443
