@@ -1,7 +1,7 @@
 # Security Policy
 
 ## Supported Versions
-Only the latest version of CryPTrus 2.0 is currently supported with security updates.
+Only the latest version of CrypTrus 2.0 is currently supported with security updates.
 
 | Version | Supported          |
 | ------- | ------------------ |
